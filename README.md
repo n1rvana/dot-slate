@@ -6,6 +6,11 @@
 Sharing my .slate setup for the wonderful Mac OS X Window manager namded Slate which can be
 found here: https://github.com/jigish/slate
 
+#### Special Features
+
+  - Layout for 4k Monitors
+  - Many aliasas for quicly creating custom layouts
+
 ### Setup
 
   - Clone this repo somewhere

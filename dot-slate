@@ -11,20 +11,12 @@ config windowHintsSpread true
 config windowHintsOrder persist
 config orderScreensLeftToRight true  # Left most screen is 0, according to System Preferences Arrangement
 
-# Monitor Aliases - Specify your monitors here
-# If you can't find the resolution (what's the "resolution" or a retina macbook?) you can use position later.
-
-alias mon-laptop      1680x1050
-alias mon-thunderbolt 2560x1440
-alias mon-1080p       1920x1080
-alias mon-4k          3840x2160
-
 
 # Position Aliases
 # example to make a window take the lower left quarter of your thunderbolt display:
 # alias
 
-alias resize-full   corner top-left   resize:screenSizeX/3;screenSizeY3
+alias resize-full   corner top-left   resize:screenSizeX;screenSizeY
 
 # Positions - Dual Window
 alias resize-half-vertical   resize:screenSizeX/2;screenSizeY
@@ -48,20 +40,33 @@ alias quarter-lower-left      corner bottom-left  ${resize-quarter}
 alias quarter-lower-right     corner bottom-right ${resize-quarter}
 
 # Positions - Six Up (most likely used on 4k displays)
-alias resize-hex			 resize:screenSizeX/3;screenSizeY/2
-alias hex-upper-left      corner top-left     ${resize-hex}
-alias hex-upper-middle    move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY/2
-alias hex-upper-right     corner top-right    ${resize-hex}
-alias hex-lower-left      corner bottom-left   ${resize-hex}
-alias hex-lower-middle    move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2
-alias hex-lower-right     corner bottom-right ${resize-hex}
+# First divide 3 across, 2 high:
+alias resize-hex			     resize:screenSizeX/3;screenSizeY/2
+alias hex-upper-left       corner top-left     ${resize-hex}
+alias hex-upper-middle     move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY/2
+alias hex-upper-right      corner top-right    ${resize-hex}
+alias hex-lower-left       corner bottom-left   ${resize-hex}
+alias hex-lower-middle     move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2
+alias hex-lower-right      corner bottom-right ${resize-hex}
+
+# Now two columns of three windows each:
+alias resize-6			     resize:screenSizeX/2;screenSizeY/3
+alias 6-upper-left       corner top-left     ${resize-6}
+alias 6-middle-left      move screenOriginX;screenOriginY+screenSizeY/3 screenSizeX/2;screenSizeY/3
+alias 6-lower-left       corner bottom-left  ${resize-6}
+alias 6-upper-right      corner top-right    ${resize-6}
+alias 6-middle-right     move screenOriginX+screenSizeX/2;screenOriginY+screenSizeY/3 screenSizeX/2;screenSizeY/3
+alias 6-lower-right      corner bottom-right ${resize-6}
 
 
 # Display specific aliases
 # These will make defining app layouts easier
 # Displays are indexed left to right from 0.
-# These aliases support all 5 configs on all three screens.
+# These aliases support all 6 configs on all three screens.
 # Name format is Screen-divisor-position.  So 13R - is the right third of screen #1
+# 26TL is the top left 6th of screen #2
+# spreads are collections of these to "spread" an apps windows out.
+# For instance I set finder to 06S and the winder windows are then spread out to those 6 positions.
 
 alias 011   ${resize-full}    0
 alias 02L   ${half-left}      0
@@ -75,12 +80,25 @@ alias 04TL  ${quarter-upper-left}   0
 alias 04TR  ${quarter-upper-right}  0
 alias 04BL  ${quarter-lower-left}   0
 alias 04BR  ${quarter-lower-right}  0
-alias 06TL  ${hex-upper-left}   0
-alias 06M   ${hex-upper-middle} 0
-alias 06TR  ${hex-upper-right}  0
-alias 06BL  ${hex-lower-left}   0
-alias 06M   ${hex-lower-middle} 0
-alias 06BR  ${hex-lower-right}  0
+alias 0HTL  ${hex-upper-left}   0
+alias 0HTM  ${hex-upper-middle} 0
+alias 0HTR  ${hex-upper-right}  0
+alias 0HBL  ${hex-lower-left}   0
+alias 0HBM  ${hex-lower-middle} 0
+alias 0HBR  ${hex-lower-right}  0
+alias 06TL  ${6-upper-left}     0
+alias 06ML  ${6-middle-left}    0
+alias 06BL  ${6-lower-left}     0
+alias 06TR  ${6-upper-right}    0
+alias 06MR  ${6-middle-right}   0
+alias 06BR  ${6-lower-right}    0
+
+# Spreads are used to spread an apps windows into all the divisions of the screen
+alias 02S ${02L} | ${02R}
+alias 03S ${03L} | ${03M} | ${03R}
+alias 04S ${04TL} | ${04TR} | ${04BL} | ${04BR}
+alias 0HS ${0HTL} | ${0HTM} | ${0HTR} | ${0HBL} | ${0HBM} | ${0HBR}
+alias 06S ${06TL} | ${06ML} | ${06BL} | ${06TR} | ${06MR} | ${06BR}
 
 alias 111   ${resize-full}    1
 alias 12L   ${half-left}      1
@@ -94,12 +112,23 @@ alias 14TL  ${quarter-upper-left}   1
 alias 14TR  ${quarter-upper-right}  1
 alias 14BL  ${quarter-lower-left}   1
 alias 14BR  ${quarter-lower-right}  1
-alias 16TL  ${hex-upper-left}   1
-alias 16M   ${hex-upper-middle} 1
-alias 16TR  ${hex-upper-right}  1
-alias 16BL  ${hex-lower-left}   1
-alias 16M   ${hex-lower-middle} 1
-alias 16BR  ${hex-lower-right}  1
+alias 1HTL  ${hex-upper-left}   1
+alias 1HTM  ${hex-upper-middle} 1
+alias 1HTR  ${hex-upper-right}  1
+alias 1HBL  ${hex-lower-left}   1
+alias 1HBM  ${hex-lower-middle} 1
+alias 1HBR  ${hex-lower-right}  1
+alias 16TL  ${6-upper-left}     1
+alias 16ML  ${6-middle-left}    1
+alias 16BL  ${6-lower-left}     1
+alias 16TR  ${6-upper-right}    1
+alias 16MR  ${6-middle-right}   1
+alias 16BR  ${6-lower-right}    1
+alias 12S ${12L} | ${12R}
+alias 13S ${13L} | ${13M} | ${13R}
+alias 14S ${14TL} | ${14TR} | ${14BL} | ${14BR}
+alias 1HS ${1HTL} | ${1HTM} | ${1HTR} | ${1HBL} | ${1HBM} | ${1HBR}
+alias 16S ${16TL} | ${16ML} | ${16BL} | ${16TR} | ${16MR} | ${16BR}
 
 alias 211   ${resize-full}    2
 alias 22L   ${half-left}      2
@@ -113,24 +142,55 @@ alias 24TL  ${quarter-upper-left}   2
 alias 24TR  ${quarter-upper-right}  2
 alias 24BL  ${quarter-lower-left}   2
 alias 24BR  ${quarter-lower-right}  2
-alias 26TL  ${hex-upper-left}   2
-alias 26M   ${hex-upper-middle} 2
-alias 26TR  ${hex-upper-right}  2
-alias 26BL  ${hex-lower-left}   2
-alias 26M   ${hex-lower-middle} 2
-alias 26BR  ${hex-lower-right}  2
+alias 2HTL  ${hex-upper-left}   2
+alias 2HTM  ${hex-upper-middle} 2
+alias 2HTR  ${hex-upper-right}  2
+alias 2HBL  ${hex-lower-left}   2
+alias 2HBM  ${hex-lower-middle} 2
+alias 2HBR  ${hex-lower-right}  2
+alias 26TL  ${6-upper-left}     2
+alias 26ML  ${6-middle-left}    2
+alias 26BL  ${6-lower-left}     2
+alias 26TR  ${6-upper-right}    2
+alias 26MR  ${6-middle-right}   2
+alias 26BR  ${6-lower-right}    2
 
-# Application Layouts - Depending on your common apps and how you want them set up this will change.
-# Each layout here is tied to how many monitors you have.  You can change which monitors a given app or
-# window appearo n here by changing the code.
+alias 22S ${22L} | ${22R}
+alias 23S ${23L} | ${23M} | ${23R}
+alias 24S ${24TL} | ${24TR} | ${24BL} | ${24BR}
+alias 2HS ${2HTL} | ${2HTM} | ${2HTR} | ${2HBL} | ${2HBM} | ${2HBR}
+alias 26S ${26TL} | ${26ML} | ${26BL} | ${26TR} | ${26MR} | ${26BR}
 
-# 2 Monitor Layout
+# Monitor Aliases - Specify your monitors here
+# If you can't find the resolution (what's the "resolution" or a retina macbook?) you can use position later.
 
-layout 2mon 'Xcode':REPEAT                           ${2-top}
+alias mon-laptop      1680x1050
+alias mon-thunderbolt 2560x1440
+alias mon-1080p       1920x1080
+alias mon-4k          3840x2160
+
+# Application Layouts - Here's where you'll want to do customization.
+# Make a layout for each monitor configuration & App Combo.
+# Then in the defaults section Slate will automatically layout your windows when it detects that config.
+
+# Dual Monitor Setup
+# 4k Monitor in position 0, Laptop in position 1
+
+layout dual 'Xcode':REPEAT                            ${011} | ${111}
+layout dual 'Atom':REPEAT                             ${02R}
+layout dual 'Sublime Text':REPEAT                     ${02R}
+layout dual 'Finder':REPEAT,:SORT_TITLE               ${06S}
+layout dual 'HipChat':REPEAT                          ${04TR}
+layout dual 'Messages':REPEAT                         ${04BR}
+layout dual 'AppViz 2':REPEAT                         ${04TR}
+layout dual 'Terminal':REPEAT,:SORT_TITLE             ${06S}
+layout dual 'Safari':REPEAT,:SORT_TITLE               ${04S}
+
 
 
 # Default Layouts (you'll want to change these based on your monitors)
-default dual-tb resolutions:${mon-thunderbolt};${mon-thunderbolt}
+default dual count:2
+#default dual resolutions:${mon-4k};${mon-laptop}
 
 # Basic Bindings
 bind pad+:ctrl  ${resize-full}
@@ -155,3 +215,6 @@ bind pad1:ctrl;alt  ${quarter-lower-left}
 bind pad2:ctrl;alt  ${quarter-lower-right}
 bind pad4:ctrl;alt  ${quarter-upper-left}
 bind pad5:ctrl;alt  ${quarter-upper-right}
+
+# Layout Binding
+bind padEnter:ctrl layout dual
