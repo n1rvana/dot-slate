@@ -31,8 +31,6 @@ bind pad1:ctrl;alt  ${move-duo-left}
 bind pad2:ctrl;alt  ${move-duo-right}
 bind pad5:ctrl;alt  corner top-left ${resize-full}
 
-layout stdLayout 'Safari'
-
 # End Nirvana's 4k Mode =============================
 
 bind u:ctrl;alt corner top-left     ${resize-quarter}

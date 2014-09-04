@@ -9,7 +9,7 @@ found here: https://github.com/jigish/slate
 #### Special Features
 
   - Layout for 4k Monitors
-  - Many aliasas for quicly creating custom layouts
+  - Many aliasas for quickly creating custom layouts
 
 ### Setup
 
