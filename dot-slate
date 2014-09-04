@@ -9,19 +9,22 @@ config windowHintsIgnoreHiddenWindows false
 config windowHintsShowIcons true
 config windowHintsSpread true
 config windowHintsOrder persist
-config orderScreensLeftToRight true
+config orderScreensLeftToRight true  # Left most screen is 0, according to System Preferences Arrangement
 
-# Monitor Aliases
+# Monitor Aliases - Specify your monitors here
+# If you can't find the resolution (what's the "resolution" or a retina macbook?) you can use position later.
+
 alias mon-laptop      1680x1050
 alias mon-thunderbolt 2560x1440
 alias mon-1080p       1920x1080
 alias mon-4k          3840x2160
 
+
 # Position Aliases
 # example to make a window take the lower left quarter of your thunderbolt display:
 # alias
 
-alias resize-full            resize:screenSizeX;screenSizeY
+alias resize-full   corner top-left   resize:screenSizeX/3;screenSizeY3
 
 # Positions - Dual Window
 alias resize-half-vertical   resize:screenSizeX/2;screenSizeY
@@ -53,6 +56,81 @@ alias hex-lower-left      corner bottom-left   ${resize-hex}
 alias hex-lower-middle    move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2
 alias hex-lower-right     corner bottom-right ${resize-hex}
 
+
+# Display specific aliases
+# These will make defining app layouts easier
+# Displays are indexed left to right from 0.
+# These aliases support all 5 configs on all three screens.
+# Name format is Screen-divisor-position.  So 13R - is the right third of screen #1
+
+alias 011   ${resize-full}    0
+alias 02L   ${half-left}      0
+alias 02R   ${half-right}     0
+alias 02T   ${half-top}       0
+alias 02B   ${half-bottom}    0
+alias 03L   ${trio-left}      0
+alias 03M   ${trio-middle}    0
+alias 03R   ${trio-right}     0
+alias 04TL  ${quarter-upper-left}   0
+alias 04TR  ${quarter-upper-right}  0
+alias 04BL  ${quarter-lower-left}   0
+alias 04BR  ${quarter-lower-right}  0
+alias 06TL  ${hex-upper-left}   0
+alias 06M   ${hex-upper-middle} 0
+alias 06TR  ${hex-upper-right}  0
+alias 06BL  ${hex-lower-left}   0
+alias 06M   ${hex-lower-middle} 0
+alias 06BR  ${hex-lower-right}  0
+
+alias 111   ${resize-full}    1
+alias 12L   ${half-left}      1
+alias 12R   ${half-right}     1
+alias 12T   ${half-top}       1
+alias 12B   ${half-bottom}    1
+alias 13L   ${trio-left}      1
+alias 13M   ${trio-middle}    1
+alias 13R   ${trio-right}     1
+alias 14TL  ${quarter-upper-left}   1
+alias 14TR  ${quarter-upper-right}  1
+alias 14BL  ${quarter-lower-left}   1
+alias 14BR  ${quarter-lower-right}  1
+alias 16TL  ${hex-upper-left}   1
+alias 16M   ${hex-upper-middle} 1
+alias 16TR  ${hex-upper-right}  1
+alias 16BL  ${hex-lower-left}   1
+alias 16M   ${hex-lower-middle} 1
+alias 16BR  ${hex-lower-right}  1
+
+alias 211   ${resize-full}    2
+alias 22L   ${half-left}      2
+alias 22R   ${half-right}     2
+alias 22T   ${half-top}       2
+alias 22B   ${half-bottom}    2
+alias 23L   ${trio-left}      2
+alias 23M   ${trio-middle}    2
+alias 23R   ${trio-right}     2
+alias 24TL  ${quarter-upper-left}   2
+alias 24TR  ${quarter-upper-right}  2
+alias 24BL  ${quarter-lower-left}   2
+alias 24BR  ${quarter-lower-right}  2
+alias 26TL  ${hex-upper-left}   2
+alias 26M   ${hex-upper-middle} 2
+alias 26TR  ${hex-upper-right}  2
+alias 26BL  ${hex-lower-left}   2
+alias 26M   ${hex-lower-middle} 2
+alias 26BR  ${hex-lower-right}  2
+
+# Application Layouts - Depending on your common apps and how you want them set up this will change.
+# Each layout here is tied to how many monitors you have.  You can change which monitors a given app or
+# window appearo n here by changing the code.
+
+# 2 Monitor Layout
+
+layout 2mon 'Xcode':REPEAT                           ${2-top}
+
+
+# Default Layouts (you'll want to change these based on your monitors)
+default dual-tb resolutions:${mon-thunderbolt};${mon-thunderbolt}
 
 # Basic Bindings
 bind pad+:ctrl  ${resize-full}
