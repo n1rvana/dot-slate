@@ -1,0 +1,133 @@
+
+# Nirvana's dotslate.  Impetus: a 4k display that is drowsy, wanting to get a good config when it wakes.
+
+#Configs
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+config windowHintsIgnoreHiddenWindows false
+config windowHintsShowIcons true
+config windowHintsSpread true
+config windowHintsOrder persist
+config orderScreensLeftToRight true
+
+# Monitor Aliases
+alias mon-laptop      1680x1050
+alias mon-thunderbolt 2560x1440
+alias mon-1080p       1920x1080
+alias mon-4k          3840x2160
+
+# Position Aliases
+# example to make a window take the lower left quarter of your thunderbolt display:
+# alias
+
+alias resize-full            resize:screenSizeX;screenSizeY
+
+# Positions - Dual Window
+alias resize-half-vertical   bar-resize:screenSizeX/2
+alias resize-half-horizontal bar-resize:screenSizeY/2
+alias half-left     corner top-left     ${resize-half-vertical}
+alias half-right    corner top-right    ${resize-half-vertical}
+alias half-top      corner top-left     ${resize-half-horizontal}
+alias half-bottom   corner bottom-left  ${resize-half-horizontal}
+
+# Positions - Three Up
+alias resize-trio			resize:screenSizeX/3;screenSizeY
+alias trio-left
+alias trio-middle
+alias trio-right
+
+# Positions - Quarters
+alias resize-quarter          resize:screenSizeX/2;screenSizeY/2
+alias quarter-upper-left      corner top-left     ${resize-quarter}
+alias quarter-upper-right     corner top-right    ${resize-quarter}
+alias quarter-lower-left      corner bottom-left  ${resize-quarter}
+alias quarter-lower-right     corner bottom-right ${resize-quarter}
+
+# Positions - Six Up (needs 4k most likely)
+alias resize-hex			resize:screenSizeX/3;screenSizeY/2
+alias hex-upper-left
+alias hex-upper-middle
+alias hex-upper-right
+alias hex-lower-left
+alias hex-lower-middle
+alias hex-lower-right
+
+
+# Divides the screen into 6 windows, two rows of three across, first row l-r is 7,8,9 then 4,5,6 for second row
+# Ctrl-numpad key puts windows in these locations.
+# There is also a three-window full-height mode bound to the 1,2,3 keys.
+# Also: Dual window mode (seems best for web browsing) Ctrl-Option-pad1 & 2
+
+alias move-middle-top move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY/2
+alias move-middle-bottom move screenOriginX+screenSizeX/3;screenOriginY+screenSizeY/2 screenSizeX/3;screenSizeY/2
+alias move-middle-full move screenOriginX+screenSizeX/3;screenOriginY screenSizeX/3;screenSizeY
+alias move-duo-left move screenOriginX;screenOriginY screenSizeX/2;screenSizeY
+alias move-duo-right move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
+
+alias main-screen throw 0
+#layout 4k 'Sublime Text':REPEAT
+
+bind pad1:ctrl  corner top-left      ${resize-trio}
+bind pad2:ctrl  ${move-middle-full}
+bind pad3:ctrl  corner top-right     ${resize-trio}
+bind pad4:ctrl  corner bottom-left   ${resize-hex}
+bind pad5:ctrl  ${move-middle-bottom}
+bind pad6:ctrl  corner bottom-right  ${resize-hex}
+bind pad7:ctrl  corner top-left	    ${resize-hex}
+bind pad8:ctrl  ${move-middle-top}
+bind pad9:ctrl  corner top-right	    ${resize-hex}
+bind pad1:ctrl;alt  ${move-duo-left}
+bind pad2:ctrl;alt  ${move-duo-right}
+bind pad5:ctrl;alt  corner top-left ${resize-full}
+
+layout stdLayout 'Safari'
+
+# End Nirvana's 4k Mode =============================
+
+bind u:ctrl;alt corner top-left     ${resize-quarter}
+bind i:ctrl;alt push   up           ${resize-half-horizontal}
+bind o:ctrl;alt corner top-right    ${resize-quarter}
+bind l:ctrl;alt push   right        ${resize-half-horizontal}
+bind m:ctrl;alt corner bottom-left  ${resize-quarter}
+bind ,:ctrl;alt push   down         ${resize-half-horizontal}
+bind .:ctrl;alt corner bottom-right ${resize-quarter}
+bind j:ctrl;alt push   left         ${resize-half-horizontal}
+bind k:ctrl;alt corner top-left     ${resize-full}
+
+bind right:ctrl;alt throw right resize
+bind  left:ctrl;alt throw left  resize
+bind    up:ctrl;alt throw up    resize
+bind  down:ctrl;alt throw down  resize
+
+# Resize Bindings
+bind right:alt       resize +10% +0
+bind left:alt        resize -10% +0
+bind up:alt          resize +0   -10%
+bind down:alt        resize +0   +10%
+bind right:ctrl;alt  resize -10% +0 bottom-right
+bind left:ctrl;alt   resize +10% +0 bottom-right
+bind up:ctrl;alt     resize +0   +10% bottom-right
+bind down:ctrl;alt   resize +0   -10% bottom-right
+
+# Nudge Bindings
+bind right:shift;alt nudge +10% +0
+bind left:shift;alt  nudge -10% +0
+bind up:shift;alt    nudge +0   -10%
+bind down:shift;alt  nudge +0   +10%
+
+# Throw Bindings
+bind 1:ctrl;alt         throw 0 resize
+bind 2:ctrl;alt         throw 1 resize
+bind 3:ctrl;alt         throw 2 resize
+
+# Focus Bindings
+bind right:cmd    focus right
+bind left:cmd     focus left
+bind up:cmd       focus up
+bind down:cmd     focus down
+bind up:cmd;alt   focus behind
+bind down:cmd;alt focus behind
+
+# Window Hints
+bind esc:cmd hint
