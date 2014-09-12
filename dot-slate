@@ -182,11 +182,11 @@ layout dual 'Sublime Text':REPEAT                     ${02R}
 layout dual 'Finder':REPEAT,:SORT_TITLE               ${06S}
 layout dual 'HipChat':REPEAT                          ${04TR}
 layout dual 'Messages':REPEAT                         ${04BR}
-layout dual 'AppViz 2':REPEAT                         ${04TR}
-layout dual 'Terminal':REPEAT,:SORT_TITLE             ${06S}
+layout dual 'AppViz':REPEAT                           ${04TR}
+layout dual 'Terminal':REPEAT,:SORT_TITLE             ${04S}
 layout dual 'Safari':REPEAT,:SORT_TITLE               ${04S}
-
-
+layout dual 'Mail'                                    ${02R}
+layout dual 'iTunes'                                  ${111}
 
 # Default Layouts (you'll want to change these based on your monitors)
 default dual count:2
