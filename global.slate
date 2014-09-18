@@ -1,3 +1,8 @@
+# global.slate
+# This file sets up aliases and bindings to make working with slate a lot easier.
+# Personal config stuff has been refactored into personal.slate.  The repo has an example personal.slate
+
+# Changes to this file should be pretty universal for everybody.
 
 # Nirvana's dotslate.  Impetus: a 4k display that is drowsy, wanting to get a good config when it wakes.
 
@@ -161,37 +166,6 @@ alias 24S ${24TL} | ${24TR} | ${24BL} | ${24BR}
 alias 2HS ${2HTL} | ${2HTM} | ${2HTR} | ${2HBL} | ${2HBM} | ${2HBR}
 alias 26S ${26TL} | ${26ML} | ${26BL} | ${26TR} | ${26MR} | ${26BR}
 
-# Monitor Aliases - Specify your monitors here
-# If you can't find the resolution (what's the "resolution" or a retina macbook?) you can use position later.
-
-alias mon-laptop      1680x1050
-alias mon-thunderbolt 2560x1440
-alias mon-1080p       1920x1080
-alias mon-4k          3840x2160
-
-# Application Layouts - Here's where you'll want to do customization.
-# Make a layout for each monitor configuration & App Combo.
-# Then in the defaults section Slate will automatically layout your windows when it detects that config.
-
-# Dual Monitor Setup
-# 4k Monitor in position 0, Laptop in position 1
-
-layout dual 'Xcode':REPEAT                            ${011} | ${111}
-layout dual 'Atom':REPEAT                             ${02R}
-layout dual 'Sublime Text':REPEAT                     ${02R}
-layout dual 'Finder':REPEAT,:SORT_TITLE               ${06S}
-layout dual 'HipChat':REPEAT                          ${04TR}
-layout dual 'Messages':REPEAT                         ${04BR}
-layout dual 'AppViz':REPEAT                           ${04TR}
-layout dual 'Terminal':REPEAT,:SORT_TITLE             ${04S}
-layout dual 'Safari':REPEAT,:SORT_TITLE               ${04S}
-layout dual 'Mail'                                    ${02R}
-layout dual 'iTunes'                                  ${111}
-
-# Default Layouts (you'll want to change these based on your monitors)
-default dual count:2
-#default dual resolutions:${mon-4k};${mon-laptop}
-
 # Basic Bindings
 bind pad+:ctrl  ${resize-full}
 
@@ -215,6 +189,3 @@ bind pad1:ctrl;alt  ${quarter-lower-left}
 bind pad2:ctrl;alt  ${quarter-lower-right}
 bind pad4:ctrl;alt  ${quarter-upper-left}
 bind pad5:ctrl;alt  ${quarter-upper-right}
-
-# Layout Binding
-bind padEnter:ctrl layout dual

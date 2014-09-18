@@ -1,0 +1,51 @@
+# Here's what you'll want to customize for your particular setup.
+
+# Monitor Aliases - Specify your monitors here
+# If you can't find the resolution (what's the "resolution" or a retina macbook?) you can use position later.
+
+alias mon-laptop      1680x1050
+alias mon-thunderbolt 2560x1440
+alias mon-1080p       1920x1080
+alias mon-4k          3840x2160
+
+# Application Layouts - Here's where you'll want to do customization.
+# Make a layout for each monitor configuration & App Combo.
+# EG: A layout for when you're just on the laptop, and another for when at work plugged into two monitors,
+# and then a third layout for when at home plugged into one monitor.
+# Then in the defaults section Slate will automatically layout your windows when it detects that config.
+
+# Dual Monitor Setup
+# 4k Monitor in position 0, Laptop in position 1
+
+# layout format:
+# layout name 'Application':flags                     alias-for-window-position
+# These aliases are defined in global.slate and are named in this form:
+# ${ABC} where
+# A = the monitor to put the window on
+# B = the way the monitor space is divided (eg: in half would be 2 here)
+# C = the position to put the window in.  S = spread windows across all positions (requires :REPEAT)
+
+layout dual 'Xcode':REPEAT                            ${011} | ${111}
+layout dual 'Atom':REPEAT                             ${02R}
+layout dual 'Sublime Text':REPEAT                     ${02R}
+layout dual 'Finder':REPEAT,:SORT_TITLE               ${06S}
+layout dual 'HipChat':REPEAT                          ${04TR}
+layout dual 'Messages':REPEAT                         ${04BR}
+layout dual 'AppViz':REPEAT                           ${04TR}
+layout dual 'Terminal':REPEAT,:SORT_TITLE             ${04S}
+layout dual 'Safari':REPEAT,:SORT_TITLE               ${04S}
+layout dual 'Mail'                                    ${02R}
+layout dual 'iTunes'                                  ${111}
+layout dual 'Preview':REPEAT,:SORT_TITLE              ${04S}
+
+# Default Layouts (you'll want to change these based on your monitors)
+# This is basically where layout automation happens.  If a config change matches one of these defaults,
+# then the windows will be re-arranged according to the layout specified.
+
+default dual count:2
+
+#default dual resolutions:${mon-4k};${mon-laptop}
+
+
+# Layout Binding - I use this to get back to the correct layout after I've messed with the windows.
+bind padEnter:ctrl layout dual

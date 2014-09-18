@@ -1,1 +1,7 @@
-source ~/path/to/repo/dot-slate/dot-slate
+# Save this file in ~/.slate
+
+# Make this alias point to the directory where the dot-slate repo lives:
+alias dot-slate ~/path/to/repo/dot-slate/
+
+source ${dot-slate}/global.slate
+source ${dot-slate}/personal.slate
