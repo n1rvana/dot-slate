@@ -32,7 +32,7 @@ layout dual 'Finder':REPEAT,:SORT_TITLE               ${06S}
 layout dual 'HipChat':REPEAT                          ${04TR}
 layout dual 'Messages':REPEAT                         ${04BR}
 layout dual 'AppViz':REPEAT                           ${04TR}
-layout dual 'Terminal':REPEAT,:SORT_TITLE             ${04S}
+layout dual 'Terminal':REPEAT,:SORT_TITLE             ${02T} | ${02B}
 layout dual 'Safari':REPEAT,:SORT_TITLE               ${04S}
 layout dual 'Mail'                                    ${02R}
 layout dual 'iTunes'                                  ${111}
