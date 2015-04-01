@@ -29,7 +29,7 @@ layout dual 'Xcode':REPEAT                            ${011} | ${111}
 layout dual 'Atom':REPEAT                             ${02R}
 layout dual 'Sublime Text':REPEAT                     ${02R}
 layout dual 'Finder':REPEAT,:SORT_TITLE               ${06S}
-layout dual 'HipChat':REPEAT                          ${04TR}
+layout dual 'Slack':REPEAT                            ${04TR}
 layout dual 'Messages':REPEAT                         ${04BR}
 layout dual 'AppViz':REPEAT                           ${04TR}
 layout dual 'Terminal':REPEAT,:SORT_TITLE             ${02T} | ${02B}
@@ -37,15 +37,32 @@ layout dual 'Safari':REPEAT,:SORT_TITLE               ${04S}
 layout dual 'Mail'                                    ${02R}
 layout dual 'iTunes'                                  ${111}
 layout dual 'Preview':REPEAT,:SORT_TITLE              ${04S}
+layout dual 'iBooks':REPEAT                           ${111} | ${04S}
+
+layout triple 'Xcode':REPEAT                            ${111} | ${211}
+layout triple 'Atom':REPEAT                             ${14S}
+layout triple 'Sublime Text':REPEAT                     ${14S}
+layout triple 'Finder':REPEAT,:SORT_TITLE               ${04S}
+layout triple 'Slack':REPEAT                            ${211}
+layout triple 'Messages':REPEAT                         ${211}
+layout triple 'AppViz':REPEAT                           ${04TR}
+layout triple 'Terminal':REPEAT,:SORT_TITLE             ${14S}
+layout triple 'Safari':REPEAT,:SORT_TITLE               ${14S}
+layout triple 'Mail'                                    ${12R}
+layout triple 'iTunes'                                  ${211}
+layout triple 'Preview':REPEAT,:SORT_TITLE              ${14S}
+layout triple 'iBooks':REPEAT                           ${011} | ${14S}
+
 
 # Default Layouts (you'll want to change these based on your monitors)
 # This is basically where layout automation happens.  If a config change matches one of these defaults,
 # then the windows will be re-arranged according to the layout specified.
 
 default dual count:2
+default triple count:3
 
 #default dual resolutions:${mon-4k};${mon-laptop}
 
 
 # Layout Binding - I use this to get back to the correct layout after I've messed with the windows.
-bind padEnter:ctrl layout dual
+bind padEnter:ctrl layout triple
