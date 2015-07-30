@@ -26,7 +26,7 @@ alias mon-4k          3840x2160
 # C = the position to put the window in.  S = spread windows across all positions (requires :REPEAT)
 
 layout dual 'Xcode':REPEAT                            ${011} | ${111}
-layout dual 'Atom':REPEAT                             ${02R}
+layout dual 'Atom':REPEAT                             ${011}
 layout dual 'Sublime Text':REPEAT                     ${02R}
 layout dual 'Finder':REPEAT,:SORT_TITLE               ${06S}
 layout dual 'Slack':REPEAT                            ${04TR}
@@ -38,20 +38,32 @@ layout dual 'Mail'                                    ${02R}
 layout dual 'iTunes'                                  ${111}
 layout dual 'Preview':REPEAT,:SORT_TITLE              ${04S}
 layout dual 'iBooks':REPEAT                           ${111} | ${04S}
+layout dual 'Notes':REPEAT                            ${111}
+layout dual 'Reminders':REPEAT                        ${111}
+layout dual 'Skype':REPEAT                            ${111}
+layout dual 'Photos':REPEAT                           ${111}
+layout dual 'Battle.net':REPEAT                       ${111}
+
 
 layout triple 'Xcode':REPEAT                            ${111} | ${211}
-layout triple 'Atom':REPEAT                             ${14S}
-layout triple 'Sublime Text':REPEAT                     ${14S}
-layout triple 'Finder':REPEAT,:SORT_TITLE               ${04S}
+layout triple 'Atom':REPEAT                             ${111}
+layout triple 'Finder':REPEAT,:SORT_TITLE               ${011}  # Single window finder, using tabs
 layout triple 'Slack':REPEAT                            ${211}
+layout triple 'Textual 5':REPEAT                        ${211}
 layout triple 'Messages':REPEAT                         ${211}
 layout triple 'AppViz':REPEAT                           ${04TR}
-layout triple 'Terminal':REPEAT,:SORT_TITLE             ${14S}
-layout triple 'Safari':REPEAT,:SORT_TITLE               ${14S}
+layout triple 'Terminal':REPEAT,:SORT_TITLE             ${211}
+layout triple 'Safari':REPEAT,:SORT_TITLE               ${011}
 layout triple 'Mail'                                    ${12R}
 layout triple 'iTunes'                                  ${211}
 layout triple 'Preview':REPEAT,:SORT_TITLE              ${14S}
-layout triple 'iBooks':REPEAT                           ${011} | ${14S}
+layout triple 'iBooks':REPEAT                           ${211}
+layout triple 'Sublime Text':REPEAT                     ${14S}
+layout triple 'Reminders':REPEAT                        ${211}
+layout triple 'Notes':REPEAT                            ${211}
+layout triple 'Skype':REPEAT                            ${211}
+layout triple 'Photos':REPEAT                           ${211}
+layout triple 'Battle.net':REPEAT                           ${211}
 
 
 # Default Layouts (you'll want to change these based on your monitors)
