@@ -3,7 +3,7 @@
 
 ### What It Is
 
-Sharing my .slate setup for the wonderful Mac OS X Window manager namded Slate, an active fork of which can be
+Sharing my .slate setup for the wonderful Mac OS X Window manager named Slate, an active fork of which can be
 found here: https://github.com/mattr-/slate
 
 The original repository (https://github.com/jigish/slate) had its last commit in 2012.
