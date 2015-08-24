@@ -4,4 +4,5 @@
 alias dot-slate ~/path/to/repo/dot-slate/
 
 source ${dot-slate}/global.slate
+source ${dot-slate}/bindings.slate
 source ${dot-slate}/personal.slate
