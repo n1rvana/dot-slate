@@ -1,0 +1,23 @@
+# Basic Bindings
+bind pad+:ctrl  ${resize-full}
+
+bind pad0:ctrl  ${half-left}
+bind pad.:ctrl  ${half-right}
+bind pad0:ctrl;alt  ${half-top}
+bind pad.:ctrl;alt  ${half-bottom}
+
+bind pad1:ctrl  ${trio-left}
+bind pad2:ctrl  ${trio-middle}
+bind pad3:ctrl  ${trio-right}
+
+bind pad4:ctrl  ${hex-lower-left}
+bind pad5:ctrl  ${hex-lower-middle}
+bind pad6:ctrl  ${hex-lower-right}
+bind pad7:ctrl  ${hex-upper-left}
+bind pad8:ctrl  ${hex-upper-middle}
+bind pad9:ctrl  ${hex-upper-right}
+
+bind pad1:ctrl;alt  ${quarter-lower-left}
+bind pad2:ctrl;alt  ${quarter-lower-right}
+bind pad4:ctrl;alt  ${quarter-upper-left}
+bind pad5:ctrl;alt  ${quarter-upper-right}
